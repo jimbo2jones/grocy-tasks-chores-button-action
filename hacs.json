@@ -1,0 +1,7 @@
+{
+  "name": "Grocy tasks and chores card",
+  "content_in_root": false,
+  "render_readme": true,
+  "filename": "grocy-tasks-chores.js",
+  "homeassistant": "2024.11"
+}

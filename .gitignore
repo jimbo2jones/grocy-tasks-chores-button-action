@@ -1,0 +1,6 @@
+.idea/
+.parcel-cache/
+node_modules/
+dist/grocy-tasks-chores.js
+dist/grocy-tasks-chores.js.map
+

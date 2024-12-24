@@ -1,0 +1,37 @@
+{
+  "name": "grocy-tasks-chores",
+  "version": "1.0.0",
+  "description": "Custom Home Assistant card for displaying tasks and chores from Grocy.",
+  "source": "src/index.js",
+  "module": "dist/grocy-tasks-chores.js",
+  "targets": {
+    "module": {
+      "includeNodeModules": true,
+      "optimize": true
+    }
+  },
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FamousWolf/grocy-tasks-chores.git"
+  },
+  "keywords": [
+    "lovelace"
+  ],
+  "author": "Rudy Gnodde",
+  "licence": "MIT",
+  "bugs": {
+    "url": "https://github.com/FamousWolf/grocy-tasks-chores/issues"
+  },
+  "homepage": "https://github.com/FamousWolf/grocy-tasks-chores",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  },
+  "dependencies": {
+    "lit": "^3.1.2",
+    "luxon": "^3.4.4"
+  }
+}
