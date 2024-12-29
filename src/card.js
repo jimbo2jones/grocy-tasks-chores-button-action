@@ -422,7 +422,8 @@ export class GrocyTasksChoresCard extends LitElement {
         const relativeToDate = DateTime.now().minus({ days: this._relativeDateDays });
 
         if (relative && date < relativeFromDate && date > relativeToDate) {
-            return DateTime.fromISO(date).toRelativeCalendar()
+            // Setting `{ unit: "days" }` is a workaround for Luxon issue https://github.com/moment/luxon/issues/394
+            return DateTime.fromISO(date).toRelativeCalendar({ unit: "days" });
         }
 
         let formattedDate = DateTime.fromISO(date).toFormat(this._dateFormat);
