@@ -276,11 +276,11 @@ export class GrocyTasksChoresCard extends LitElement {
                 case 'name desc':
                     return taskOrChore1.name < taskOrChore2.name ? 1 : taskOrChore1.name > taskOrChore2.name ? -1 : 0;
                 case 'date asc':
-                    return taskOrChore1.dueDate > taskOrChore2.dueDate ? 1 : taskOrChore1.dueDate < taskOrChore2.dueDate ? -1 : 0;
+                    return this._dateSort(taskOrChore1.dueDate, taskOrChore2.dueDate);
                 case 'date':
                 case 'date desc':
                 default:
-                    return taskOrChore1.dueDate < taskOrChore2.dueDate ? 1 : taskOrChore1.dueDate > taskOrChore2.dueDate ? -1 : 0;
+                    return -this._dateSort(taskOrChore1.dueDate, taskOrChore2.dueDate);
             }
         });
 
@@ -289,6 +289,18 @@ export class GrocyTasksChoresCard extends LitElement {
             this._tasksAndChores = processedTasksAndChores;
             this._tasksAndChoresJson = processedTasksAndChoresJson;
         }
+    }
+
+    _dateSort(date1, date2) {
+        if (!date1 || !date2) {
+            if (date1) {
+                return -1;
+            } else if (date2) {
+                return 1;
+            }
+            return 0;
+        }
+        return date1 > date2 ? 1 : date1 < date2 ? -1 : 0;
     }
 
     _processTasks() {
@@ -410,7 +422,8 @@ export class GrocyTasksChoresCard extends LitElement {
         const relativeToDate = DateTime.now().minus({ days: this._relativeDateDays });
 
         if (relative && date < relativeFromDate && date > relativeToDate) {
-            return DateTime.fromISO(date).toRelativeCalendar()
+            // Setting `{ unit: "days" }` is a workaround for Luxon issue https://github.com/moment/luxon/issues/394
+            return DateTime.fromISO(date).toRelativeCalendar({ unit: "days" });
         }
 
         let formattedDate = DateTime.fromISO(date).toFormat(this._dateFormat);
