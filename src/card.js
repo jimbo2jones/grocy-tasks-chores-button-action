@@ -40,6 +40,7 @@ export class GrocyTasksChoresCard extends LitElement {
     _hideAlmostDue;
     _hideDue;
     _filterUsers;
+    _filterTaskCategories;
     _tappedTasks = {
         chore: [],
         task: []
@@ -127,7 +128,8 @@ export class GrocyTasksChoresCard extends LitElement {
         this._hideNotDue = config.hideNotDue ?? false;
         this._hideAlmostDue = config.hideAlmostDue ?? false;
         this._hideDue = config.hideDue ?? false;
-        this._filterUsers = config.filterUsers ? config.filterUsers.split(',').map(Number) : null;
+        this._filterUsers = config.filterUsers ? String(config.filterUsers).split(',').map(Number) : null;
+        this._filterTaskCategories = config.filterTaskCategories ? String(config.filterTaskCategories).split(',').map(Number) : null;
 
         if (config.locale) {
             LuxonSettings.defaultLocale = config.locale;
@@ -318,7 +320,7 @@ export class GrocyTasksChoresCard extends LitElement {
 
             const dueClass = this._getDueClass(task.due_date);
             const user = this._processUser(task.assigned_to_user);
-            if (this._isFiltered(dueClass, user.id ?? 0)) {
+            if (this._isFiltered(dueClass, user.id ?? 0, task.category_id ?? 0)) {
                 return;
             }
 
@@ -370,11 +372,12 @@ export class GrocyTasksChoresCard extends LitElement {
         return processedChores;
     }
 
-    _isFiltered(dueClass, userId) {
+    _isFiltered(dueClass, userId, taskCategoryId) {
         return this._hideNotDue && dueClass === null
             || this._hideAlmostDue && dueClass === 'almostDue'
             || this._hideDue && dueClass === 'due'
             || this._filterUsers && this._filterUsers.indexOf(userId) === -1
+            || this._filterTaskCategories && taskCategoryId && this._filterTaskCategories.indexOf(taskCategoryId) === -1
     }
 
     _processUser(user) {
