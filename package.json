@@ -1,6 +1,6 @@
 {
   "name": "grocy-tasks-chores",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Custom Home Assistant card for displaying tasks and chores from Grocy.",
   "source": "src/index.js",
   "module": "dist/grocy-tasks-chores.js",
