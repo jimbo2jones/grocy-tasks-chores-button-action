@@ -47,7 +47,7 @@ export default css`
   .task {
     display: flex;
     gap: var(--task-gap);
-    width: calc(100% / var(--task-columns) - var(--task-gap) * calc(var(--task-columns) - 1));
+    width: calc((100% - var(--task-gap) * calc(var(--task-columns) - 1)) / var(--task-columns));
     cursor: pointer;
   }
   
