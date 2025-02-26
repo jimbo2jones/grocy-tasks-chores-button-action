@@ -41,7 +41,7 @@ Custom Home Assistant card for displaying tasks and chores from Grocy. This card
     Add:
     ```yaml
     resources:
-      - url: /local/grocy-tasks-chores.js?version=1.1.0
+      - url: /local/grocy-tasks-chores.js?version=1.1.1
     type: module
     ```
   - **Using the graphical editor**
