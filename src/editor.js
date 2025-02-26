@@ -124,7 +124,7 @@ export class GrocyTasksChoresCardEditor extends LitElement {
                         ${this.addBooleanField('hideAlmostDue', 'Hide almost due', false)}
                         ${this.addBooleanField('hideDue', 'Hide due', false)}
                         ${this.addTextField('filterUsers', 'Filter users (comma separated id\'s)')}
-                        ${this.addTextField('filterTaskCategories', 'Filter task categories (comma separated id\'s)')}
+                        ${this.addTextField('filterTaskCategories', 'Filter task categories (comma separated id\'s, 0 is no category)')}
                     `
                 )}
                 ${this.addExpansionPanel(
