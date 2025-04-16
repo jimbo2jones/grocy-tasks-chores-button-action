@@ -1,5 +1,8 @@
 # Grocy Tasks and Chores Card
 
+Forking to see about adding more actions during button press, rather than just closing the task or refreshing the chore.
+e.g. change assignee
+
 ![GitHub Release](https://img.shields.io/github/v/release/FamousWolf/grocy-tasks-chores)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/FamousWolf/grocy-tasks-chores/total)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/FamousWolf/grocy-tasks-chores)
