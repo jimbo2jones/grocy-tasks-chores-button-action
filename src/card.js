@@ -402,7 +402,21 @@ export class GrocyTasksChoresCard extends LitElement {
             return [];
         }
 
-        return this._hass.states[this._tasksEntity].attributes.tasks ?? [];
+        const tasks = this._hass.states[this._tasksEntity].attributes.tasks ?? [];
+
+        if (!Array.isArray(tasks)) {
+            return [];
+        }
+
+        return tasks.map((task) => ({
+            id: task.id,
+            name: task.name,
+            description: task.description,
+            due_date: task.due_date,
+            done: task.done,
+            assigned_to_user: task.assigned_to_user,
+            category_id: task.category_id,
+        }));
     }
 
     _getChores() {
@@ -415,7 +429,22 @@ export class GrocyTasksChoresCard extends LitElement {
             return [];
         }
 
-        return this._hass.states[this._choresEntity].attributes.chores ?? [];
+        const chores = this._hass.states[this._choresEntity].attributes.chores ?? [];
+
+        if (!Array.isArray(chores)) {
+            return [];
+        }
+
+        return chores.map((chore) => ({
+            id: chore.id,
+            name: chore.name,
+            description: chore.description,
+            next_estimated_execution_time: chore.next_estimated_execution_time,
+            last_tracked_time: chore.last_tracked_time,
+            next_execution_assigned_user: chore.next_execution_assigned_user,
+            last_done_by: chore.last_done_by,
+            track_count: chore.track_count,
+        }));
     }
 
     _formatDate(date, relative) {
