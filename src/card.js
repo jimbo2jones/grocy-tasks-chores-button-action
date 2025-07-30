@@ -376,7 +376,7 @@ export class GrocyTasksChoresCard extends LitElement {
         return this._hideNotDue && dueClass === null
             || this._hideAlmostDue && dueClass === 'almostDue'
             || this._hideDue && dueClass === 'due'
-            || this._filterUsers && this._filterUsers.indexOf(userId) === -1
+            || (this._filterUsers && userId > 0 && this._filterUsers.indexOf(userId) === -1)
             || this._filterTaskCategories && taskCategoryId !== undefined && this._filterTaskCategories.indexOf(taskCategoryId) === -1
     }
 
