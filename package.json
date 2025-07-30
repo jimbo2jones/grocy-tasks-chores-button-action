@@ -1,9 +1,9 @@
 {
-  "name": "grocy-tasks-chores-action-button",
+  "name": "grocy-tasks-chores-button-action",
   "version": "0.0.2",
   "description": "Custom Home Assistant card for displaying tasks and chores from Grocy.",
   "source": "src/index.js",
-  "module": "dist/grocy-tasks-chores-action-button.js",
+  "module": "dist/grocy-tasks-chores-button-action.js",
   "targets": {
     "module": {
       "includeNodeModules": true,
