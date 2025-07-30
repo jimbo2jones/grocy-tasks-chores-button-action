@@ -1,5 +1,5 @@
 {
-  "name": "Grocy tasks and chores card",
+  "name": "Grocy tasks and chores button action card",
   "content_in_root": false,
   "filename": "grocy-tasks-chores-action-button.js",
   "render_readme": true,

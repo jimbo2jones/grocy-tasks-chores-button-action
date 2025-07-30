@@ -350,7 +350,7 @@ export class GrocyTasksChoresCard extends LitElement {
 
             const dueClass = this._getDueClass(chore.next_estimated_execution_time);
             const user = this._processUser(chore.next_execution_assigned_user);
-            if (this._isFiltered(dueClass, user.id ?? 0)) {
+            if (this._isFiltered(dueClass, user.id ?? 0, undefined)) {
                 return;
             }
 
